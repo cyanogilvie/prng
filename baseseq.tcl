@@ -1,3 +1,5 @@
+package require crypto
+
 oo::class create prng::_baseseq {
 	variable {*}{
 		stack

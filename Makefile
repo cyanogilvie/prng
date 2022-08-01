@@ -1,6 +1,6 @@
 DESTDIR=/usr/local
 PACKAGE_NAME=prng
-VER=0.6
+VER=0.7
 TCLSH=tclsh
 
 all: tm docs

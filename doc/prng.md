@@ -1,6 +1,6 @@
-% prng(n) 0.6 | Pseudorandom number and sequence utilities
+% prng(n) 0.7 | Pseudorandom number and sequence utilities
 % Cyan Ogilvie
-% 0.6
+% 0.7
 
 # NAME
 
@@ -8,11 +8,11 @@ prng - Pseudorandom number and sequence utilities
 
 # SYNOPSIS
 
-**package require prng** ?0.6?
+**package require prng** ?0.7?
 
-**package require prng::blowfish** ?0.6?
+**package require prng::blowfish** ?0.7?
 
-**package require prng::mt** ?0.6?
+**package require prng::mt** ?0.7?
 
 **prng::Sequence create** *seqname* *seed*
 

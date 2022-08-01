@@ -4,11 +4,11 @@ prng - Pseudorandom number and sequence utilities
 
 # SYNOPSIS
 
-**package require prng** ?0.6?
+**package require prng** ?0.7?
 
-**package require prng::blowfish** ?0.6?
+**package require prng::blowfish** ?0.7?
 
-**package require prng::mt** ?0.6?
+**package require prng::mt** ?0.7?
 
 **prng::Sequence create** *seqname* *seed*
 

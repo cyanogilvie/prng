@@ -56,7 +56,6 @@ s2 random_normal: 12.711476609240176
 }
 #>>>
 
-
 tcltest::cleanupTests
 return
 
