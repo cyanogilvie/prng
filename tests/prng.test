@@ -1,0 +1,63 @@
+if {"::tcltest" ni [namespace children]} {
+	package require tcltest
+	namespace import ::tcltest::*
+}
+
+tcltest::loadTestedCommands
+package require prng
+
+test prng_mt-1.0 {Basic operation, mt version} -body { #<<<
+	prng::mt::Sequence create s1 "hello, sequence"
+	puts "s1 random_uint32: [s1 random_uint32]"
+	puts "s1 random_uint64: [s1 random_uint64]"
+	puts "s1 random_normal: [s1 random_normal 10 2]"
+	s1 subsequence s2
+	puts "s2 random_uint32: [s2 random_uint32]"
+	puts "s2 random_uint64: [s2 random_uint64]"
+	puts "s2 random_normal: [s2 random_normal 10 2]"
+} -cleanup {
+	foreach obj {s1 s2} {
+		if {[info object isa object $obj]} {
+			$obj destroy
+		}
+	}
+	unset -nocomplain obj
+} -result {} -output {s1 random_uint32: 40479833
+s1 random_uint64: 2179017276762469631
+s1 random_normal: 10.488755572266877
+s2 random_uint32: 2415070459
+s2 random_uint64: 16788392099454078255
+s2 random_normal: 12.399809108073061
+}
+#>>>
+
+test prng_blowfish-1.0 {Basic operation, blowfish version} -body { #<<<
+	prng::Sequence create s1 "hello, sequence"
+	puts "s1 random_uint32: [s1 random_uint32]"
+	puts "s1 random_uint64: [s1 random_uint64]"
+	puts "s1 random_normal: [s1 random_normal 10 2]"
+	s1 subsequence s2
+	puts "s2 random_uint32: [s2 random_uint32]"
+	puts "s2 random_uint64: [s2 random_uint64]"
+	puts "s2 random_normal: [s2 random_normal 10 2]"
+} -cleanup {
+	foreach obj {s1 s2} {
+		if {[info object isa object $obj]} {
+			$obj destroy
+		}
+	}
+	unset -nocomplain obj
+} -result {} -output {s1 random_uint32: 2946208981
+s1 random_uint64: 7998234717845354372
+s1 random_normal: 10.847162945191446
+s2 random_uint32: 367434920
+s2 random_uint64: 15121855089250360879
+s2 random_normal: 12.711476609240176
+}
+#>>>
+
+
+tcltest::cleanupTests
+return
+
+# vim: ft=tcl foldmethod=marker foldmarker=<<<,>>> ts=4 shiftwidth=4

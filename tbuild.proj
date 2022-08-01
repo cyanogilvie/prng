@@ -1,0 +1,41 @@
+set version	0.5
+
+tm prng { #<<<
+	version $::version
+
+	requires {}
+
+	files baseseq.tcl
+
+	platform tcl
+}
+
+#>>>
+tm prng/blowfish { #<<<
+	version $::version
+
+	requires {
+		math::special
+		sha1
+		crypto
+	}
+
+	files blowfish.tcl
+
+	platform tcl
+}
+
+#>>>
+tm prng/mt { #<<<
+	version $::version
+
+	requires {}
+
+	files mt.tcl
+
+	platform tcl
+}
+
+#>>>
+
+# vim: ft=tcl foldmethod=marker foldmarker=<<<,>>> ts=4 shiftwidth=4
