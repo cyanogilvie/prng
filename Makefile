@@ -1,4 +1,5 @@
-DESTDIR=/usr/local
+DESTDIR=
+PREFIX=/usr/local
 PACKAGE_NAME=prng
 VER=0.7
 TCLSH=tclsh
@@ -22,14 +23,14 @@ tm: tm/$(PACKAGE_NAME)-$(VER).tm tm/$(PACKAGE_NAME)/blowfish-$(VER).tm tm/$(PACK
 docs: doc/$(PACKAGE_NAME).n README.md
 
 install-tm: tm
-	mkdir -p $(DESTDIR)/lib/tcl8/site-tcl/$(PACKAGE_NAME)
-	cp tm/$(PACKAGE_NAME)-$(VER).tm $(DESTDIR)/lib/tcl8/site-tcl/
-	cp tm/$(PACKAGE_NAME)/blowfish-$(VER).tm $(DESTDIR)/lib/tcl8/site-tcl/$(PACKAGE_NAME)/
-	cp tm/$(PACKAGE_NAME)/mt-$(VER).tm $(DESTDIR)/lib/tcl8/site-tcl/$(PACKAGE_NAME)/
+	mkdir -p $(DESTDIR)$(PREFIX)/lib/tcl8/site-tcl/$(PACKAGE_NAME)
+	cp tm/$(PACKAGE_NAME)-$(VER).tm $(DESTDIR)$(PREFIX)/lib/tcl8/site-tcl/
+	cp tm/$(PACKAGE_NAME)/blowfish-$(VER).tm $(DESTDIR)$(PREFIX)/lib/tcl8/site-tcl/$(PACKAGE_NAME)/
+	cp tm/$(PACKAGE_NAME)/mt-$(VER).tm $(DESTDIR)$(PREFIX)/lib/tcl8/site-tcl/$(PACKAGE_NAME)/
 
 install-doc: docs
-	mkdir -p $(DESTDIR)/man
-	cp doc/$(PACKAGE_NAME).n $(DESTDIR)/man/
+	mkdir -p $(DESTDIR)$(PREFIX)/man
+	cp doc/$(PACKAGE_NAME).n $(DESTDIR)$(PREFIX)/man/
 
 install: install-tm install-doc
 
