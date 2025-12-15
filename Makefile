@@ -24,9 +24,13 @@ docs: doc/$(PACKAGE_NAME).n README.md
 
 install-tm: tm
 	mkdir -p $(DESTDIR)$(PREFIX)/lib/tcl8/site-tcl/$(PACKAGE_NAME)
+	mkdir -p $(DESTDIR)$(PREFIX)/lib/tcl9/site-tcl/$(PACKAGE_NAME)
 	cp tm/$(PACKAGE_NAME)-$(VER).tm $(DESTDIR)$(PREFIX)/lib/tcl8/site-tcl/
+	cp tm/$(PACKAGE_NAME)-$(VER).tm $(DESTDIR)$(PREFIX)/lib/tcl9/site-tcl/
 	cp tm/$(PACKAGE_NAME)/blowfish-$(VER).tm $(DESTDIR)$(PREFIX)/lib/tcl8/site-tcl/$(PACKAGE_NAME)/
+	cp tm/$(PACKAGE_NAME)/blowfish-$(VER).tm $(DESTDIR)$(PREFIX)/lib/tcl9/site-tcl/$(PACKAGE_NAME)/
 	cp tm/$(PACKAGE_NAME)/mt-$(VER).tm $(DESTDIR)$(PREFIX)/lib/tcl8/site-tcl/$(PACKAGE_NAME)/
+	cp tm/$(PACKAGE_NAME)/mt-$(VER).tm $(DESTDIR)$(PREFIX)/lib/tcl9/site-tcl/$(PACKAGE_NAME)/
 
 install-doc: docs
 	mkdir -p $(DESTDIR)$(PREFIX)/man
